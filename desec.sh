@@ -103,11 +103,11 @@ while true; do
     current_ip=$(ip -6 addr show dev "$INTERFACE" dynamic 2>/dev/null | awk '/inet6/ {print $2; exit}')
     
     if [ -n "$current_ip" ]; then
-        # Check if IP changed for THIS interface
-        if [ "$current_ip" != "${previous_ips[$INTERFACE]}" ]; then
+        # Check if IP changed for THIS zone
+        if [ "$current_ip" != "${previous_ips[$ZONE_NAME]}" ]; then
             log "[$ZONE_NAME] IP change detected on $INTERFACE ($current_ip). Updating..."
             if update_ip "$ZONE_NAME" "$TOKEN"; then
-                previous_ips[$INTERFACE]="$current_ip"
+                previous_ips[$ZONE_NAME]="$current_ip"
             fi
         fi
     else

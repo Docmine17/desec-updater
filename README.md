@@ -6,7 +6,7 @@ A lightweight Bash script to update deSEC dynamic DNS records (IPv6) for multipl
 
 - **Multi-Zone Support**: Manage multiple domains/hostnames easily.
 - **Independent Configuration**: Each zone has its own configuration file.
-- **IP Change Detection**: Tracks IP history per interface to minimize unnecessary API calls.
+- **IP Change Detection**: Tracks IP history per zone/hostname to minimize unnecessary API calls, even when multiple zones share the same interface.
 - **Systemd Integration**: Includes a service template for background operation.
 - **Clean & Simple**: Native Bash with minimal dependencies (`curl`, `iproute2`).
 
