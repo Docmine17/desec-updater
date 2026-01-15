@@ -1,0 +1,14 @@
+[Unit]
+Description=deSEC Dynamic DNS Update Service
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Ensure the path below is correct for your system
+ExecStart=/bin/bash /path/to/desec.sh
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
